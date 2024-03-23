@@ -11,6 +11,7 @@ const { data: player, pending } = useAsyncData('players',
 
 <template>
     <div>
-        {{ player }}
+        {{ player.data.first_name }}
+        {{ player.data.last_name }}
     </div>
 </template>

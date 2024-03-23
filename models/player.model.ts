@@ -1,21 +1,20 @@
-import type { Competition } from '~/models/Competition.model';
-import type { Image, Meta } from '~/models/Strapi.model';
+import type { Competition } from "~/models/competition.model";
+import type { Image, Meta } from "~/models/strapi.model";
 
 export interface Player {
     id: number
-    first_name: string
+    firs_tname: string
     last_name: string
-    slug: string
-    imageUrl: Image
+    image: Image
     ranking: number
     competition: Array<Competition>
 }
 
-export interface PlayersResponse {
+export interface PlayerResponse {
     data: Player[]
     meta: Meta
 }
 
-export interface PlayerResponse {
+export interface PlayersResponse {
     data: Player
 }
