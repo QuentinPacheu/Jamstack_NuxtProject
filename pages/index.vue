@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { StylesResponse } from "~/models/competition.model";
+import type { Player } from "~/models/player.model";
 
 const { find } = useStrapi();
 const filtertext= ref('');
@@ -15,7 +16,7 @@ const page = ref(1);
 const pageSize = ref(2);
 const filters = ref<String[]>([]);
 const { data: players, pending: pplayer, error: eplayer, refresh } = useAsyncData('players', () => find<{
-        data: Track[],
+        data: Player[],
         meta: Meta
     }>('players', {
         populate: '*',
@@ -77,7 +78,7 @@ const filteredPlayers = computed(() => {
             @click="addFilter(competition.name)">
             {{ competition.name }}
         </button>
-        <input type="text" v-model="filtertext">
+        <input style="height: 30px; padding: 0 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; box-sizing: border-box;" type="text" v-model="filtertext">
 
         <div v-for="player in filteredPlayers">
             {{ player.first_name }}
